@@ -40,7 +40,7 @@ Run migrations (if needed)
 
 Run the app with dotnet run or via Visual Studio
 
-Visit https://localhost:5001 or http://localhost:5000
+Visit https://localhost:7141 or http://localhost:7141
 
 🌍 Live Preview
 Deployed via Render.com
