@@ -1,0 +1,46 @@
+﻿@model BasvuruTakip.Models.PersonelIsBasvurusu
+
+@{
+    ViewData["Title"] = "Yeni İş Başvurusu";
+}
+
+<h2>Yeni İş Başvurusu Ekle</h2>
+
+<form asp-action="Create" method="post">
+    <div class="form-group">
+        <label>Personel Seçin</label>
+        <select asp-for="PersonelId" asp-items="ViewBag.Personeller" class="form-control"></select>
+    </div>
+
+    <div class="form-group">
+        <label>Başvuru Tarihi</label>
+        <input asp-for="BasvuruTarihi" type="date" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label>İl</label>
+        <select asp-for="IlId" asp-items="ViewBag.Iller" class="form-control"></select>
+    </div>
+
+    <div class="form-group">
+        <label>Seyahat Engeli Var mı?</label><br />
+        <input type="checkbox" asp-for="SeyahatEngeliYok" /> Yok
+    </div>
+
+    <div class="form-group">
+        <label>İşyeri Adı</label>
+        <input asp-for="IsyeriAdi" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label>Pozisyon</label>
+        <input asp-for="Pozisyon" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label>Açıklama</label>
+        <textarea asp-for="Aciklama" class="form-control"></textarea>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Kaydet</button>
+</form>

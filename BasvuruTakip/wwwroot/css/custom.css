@@ -1,0 +1,116 @@
+﻿body {
+    background-color: #1e1e2f;
+    color: #eaeaea;
+    font-family: 'Segoe UI', sans-serif;
+    padding-top: 40px;
+    margin: 0;
+}
+
+h2 {
+    text-align: center;
+    color: #ffffff;
+    margin-bottom: 30px;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+form {
+    background-color: #292940;
+    border-radius: 16px;
+    padding: 35px;
+    max-width: 650px;
+    margin: auto;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+    transition: box-shadow 0.3s ease;
+}
+
+    form:hover {
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+    }
+
+.form-group {
+    margin-bottom: 22px;
+}
+
+label {
+    font-weight: 500;
+    color: #ccc;
+    margin-bottom: 6px;
+    display: block;
+    font-size: 14px;
+}
+
+input.form-control,
+select.form-control,
+textarea.form-control {
+    background-color: #1f1f30;
+    color: #f0f0f0;
+    border-radius: 10px;
+    border: 1px solid #444;
+    padding: 10px 14px;
+    font-size: 15px;
+    transition: border-color 0.2s, background-color 0.2s;
+}
+
+    input.form-control:focus,
+    select.form-control:focus,
+    textarea.form-control:focus {
+        border-color: #4d90fe;
+        background-color: #26263c;
+        color: #ffffff; /* 🔥 Bu satır eklendi */
+        outline: none;
+    }
+
+textarea.form-control {
+    resize: vertical;
+    min-height: 100px;
+}
+
+button.btn-primary {
+    background-color: #4d90fe;
+    border: none;
+    padding: 12px 25px;
+    font-weight: 600;
+    border-radius: 10px;
+    transition: background-color 0.3s, transform 0.2s;
+    color: #fff;
+    font-size: 16px;
+    width: 100%;
+    cursor: pointer;
+}
+
+    button.btn-primary:hover {
+        background-color: #3970e0;
+        transform: scale(1.01);
+    }
+
+/* ✅ RADIO & CHECKBOX uyumu */
+input[type="radio"],
+input[type="checkbox"] {
+    accent-color: #4d90fe;
+    width: 18px;
+    height: 18px;
+    margin-right: 6px;
+    vertical-align: middle;
+}
+
+/* ✅ INLINE radio'lar (örneğin Cinsiyet) */
+.form-check-inline {
+    display: inline-block;
+    margin-right: 20px;
+}
+
+.form-check-label {
+    color: #ccc;
+    font-size: 14px;
+}
+
+/* ✅ SELECT OK GÖRÜNÜMÜ (güzelleştirme) */
+select.form-control {
+    appearance: none;
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg width='16' height='16' fill='gray' viewBox='0 0 16 16'%3E%3Cpath d='M1.5 5.5L8 12l6.5-6.5'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    background-size: 16px 16px;
+    padding-right: 36px;
+}

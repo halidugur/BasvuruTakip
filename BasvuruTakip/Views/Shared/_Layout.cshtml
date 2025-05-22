@@ -1,0 +1,79 @@
+﻿<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - BasvuruTakip</title>
+
+    <!-- Stil Dosyaları -->
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/custom.css" asp-append-version="true" />
+
+    <style>
+        #bg-video {
+            position: fixed;
+            right: 0;
+            bottom: 0;
+            min-width: 100%;
+            min-height: 100%;
+            z-index: -10;
+            object-fit: cover;
+            opacity: 0.5;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Arka Plan Video -->
+    <video autoplay muted loop id="bg-video">
+        <source src="/videos/background.mp4" type="video/mp4">
+    </video>
+
+    <!-- Üst Menü -->
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-dark bg-dark shadow mb-4">
+            <div class="container-fluid">
+                <a class="navbar-brand" asp-controller="Home" asp-action="Index">BasvuruTakip</a>
+                <div class="collapse navbar-collapse">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" asp-controller="Home" asp-action="Index">Anasayfa</a>
+                        </li>
+                        
+                        <li class="nav-item">
+                            <a class="nav-link" asp-controller="PersonelIsBasvurusu" asp-action="Create">İş Başvurusu</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-controller="Home" asp-action="Privacy">Gizlilik</a>
+                        </li>
+
+                       
+
+
+
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- İçerik -->
+    <div class="container">
+        <main role="main" class="pb-4">
+            @RenderBody()
+        </main>
+    </div>
+
+    <!-- Alt Bilgi -->
+    <footer class="border-top text-center text-muted py-3">
+        &copy; 2025 - BasvuruTakip
+    </footer>
+
+    <!-- Script Dosyaları -->
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

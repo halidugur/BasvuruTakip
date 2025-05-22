@@ -1,0 +1,59 @@
+﻿@{
+    ViewData["Title"] = "Başvuruları Listele";
+}
+
+<h2 class="text-center text-light mb-4">Personelin İş Başvuruları</h2>
+
+<div class="mb-4">
+    <label class="form-label text-light">Personel Seç:</label>
+    <select id="personelSelect" class="form-control">
+        <option value="">-- Seçiniz --</option>
+        @foreach (var p in ViewBag.Personeller as SelectList)
+        {
+            <option value="@p.Value">@p.Text</option>
+        }
+    </select>
+</div>
+
+<table class="table table-dark table-bordered text-center" id="basvuruTablosu">
+    <thead>
+        <tr>
+            <th>Başvuru Tarihi</th>
+            <th>İl</th>
+            <th>Seyahat Engeli</th>
+            <th>İşyeri Adı</th>
+            <th>Pozisyon</th>
+            <th>Açıklama</th>
+        </tr>
+    </thead>
+    <tbody></tbody>
+</table>
+
+@section Scripts {
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $('#personelSelect').change(function () {
+            var personelId = $(this).val();
+            $('#basvuruTablosu tbody').empty();
+
+            if (personelId) {
+                $.getJSON('/PersonelIsBasvurusu/GetBasvurular?personelId=' + personelId, function (data) {
+                    if (data.length === 0) {
+                        $('#basvuruTablosu tbody').append('<tr><td colspan="6">Kayıt bulunamadı</td></tr>');
+                    } else {
+                        $.each(data, function (i, item) {
+                            $('#basvuruTablosu tbody').append('<tr>' +
+                                '<td>' + item.tarih + '</td>' +
+                                '<td>' + item.il + '</td>' +
+                                '<td>' + item.seyahat + '</td>' +
+                                '<td>' + item.isyeriAdi + '</td>' +
+                                '<td>' + item.pozisyon + '</td>' +
+                                '<td>' + item.aciklama + '</td>' +
+                                '</tr>');
+                        });
+                    }
+                });
+            }
+        });
+    </script>
+}
