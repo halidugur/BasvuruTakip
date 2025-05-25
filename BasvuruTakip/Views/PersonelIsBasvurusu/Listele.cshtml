@@ -24,24 +24,50 @@
             <th>İşyeri Adı</th>
             <th>Pozisyon</th>
             <th>Açıklama</th>
+            <th>İşlem</th>
         </tr>
     </thead>
     <tbody></tbody>
 </table>
 
+
+<hr />
+<h4 class="text-light">Personel Bilgileri</h4>
+<div id="personelBilgiKutu" class="bg-secondary text-white p-3 rounded" style="display:none;">
+    <p><strong>Adı Soyadı:</strong> <span id="adSoyad"></span></p>
+    <p><strong>Cinsiyet:</strong> <span id="cinsiyet"></span></p>
+    <p><strong>Doğum Tarihi:</strong> <span id="dogum"></span></p>
+    <p><strong>İl / İlçe:</strong> <span id="ililce"></span></p>
+    <p><strong>Açıklama:</strong> <span id="aciklama"></span></p>
+</div>
+
+
+
+
+
+
+
+
+
 @section Scripts {
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
-        $('#personelSelect').change(function () {
+                $('#personelSelect').change(function () 
+                {
             var personelId = $(this).val();
             $('#basvuruTablosu tbody').empty();
 
-            if (personelId) {
-                $.getJSON('/PersonelIsBasvurusu/GetBasvurular?personelId=' + personelId, function (data) {
-                    if (data.length === 0) {
+            if (personelId) 
+            {
+                $.getJSON('/PersonelIsBasvurusu/GetBasvurular?personelId=' + personelId, function (data) 
+                {
+                    if (data.length === 0) 
+                    {
                         $('#basvuruTablosu tbody').append('<tr><td colspan="6">Kayıt bulunamadı</td></tr>');
-                    } else {
-                        $.each(data, function (i, item) {
+                    } else 
+                    {
+                        $.each(data, function (i, item) 
+                        {
                             $('#basvuruTablosu tbody').append('<tr>' +
                                 '<td>' + item.tarih + '</td>' +
                                 '<td>' + item.il + '</td>' +
@@ -49,11 +75,35 @@
                                 '<td>' + item.isyeriAdi + '</td>' +
                                 '<td>' + item.pozisyon + '</td>' +
                                 '<td>' + item.aciklama + '</td>' +
+                                '<td>' +
+                                    '<form method="post" action="/PersonelIsBasvurusu/Delete" onsubmit="return confirm(\'Bu başvuruyu silmek istediğinize emin misiniz?\')">' +
+                                        '<input type="hidden" name="id" value="' + item.id + '" />' +
+                                        '<button type="submit" class="btn btn-danger btn-sm">Sil</button>' +
+                                    '</form>' +
+                                '</td>' +
                                 '</tr>');
                         });
                     }
                 });
+
+                
+                $.getJSON('/PersonelIsBasvurusu/GetPersonelBilgi?personelId=' + personelId, function (data) 
+                {
+                    if (data) 
+                    {
+                        $('#adSoyad').text(data.adiSoyadi);
+                        $('#cinsiyet').text(data.cinsiyet);
+                        $('#dogum').text(data.dogumTarihi);
+                        $('#ililce').text(data.il + ' / ' + data.ilce);
+                        $('#aciklama').text(data.aciklama);
+                        $('#personelBilgiKutu').show();
+                    } else 
+                    {
+                        $('#personelBilgiKutu').hide();
+                    }
+                });
             }
         });
+
     </script>
 }

@@ -14,35 +14,25 @@ namespace BasvuruTakip.Controllers
         {
             _context = context;
         }
-
-        // Form ekranı
         public IActionResult Create()
         {
             ViewBag.Iller = new SelectList(_context.Iller.OrderBy(i => i.Adi), "Id", "Adi");
             return View();
         }
-
-        // POST: Formdan gelen veriyi al
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(Personel personel)
         {
-            // 🔧 Zaman hatasını önlemek için UTC olarak belirle
             personel.DogumTarihi = DateTime.SpecifyKind(personel.DogumTarihi, DateTimeKind.Utc);
-
-
             if (ModelState.IsValid)
             {
                 _context.Add(personel);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Create));
             }
-
             ViewBag.Iller = new SelectList(_context.Iller.OrderBy(i => i.Adi), "Id", "Adi");
             return View(personel);
         }
-
-        // İlçe listesini JSON olarak döner (AJAX için)
         public JsonResult GetIlceler(long ilId)
         {
             var ilceler = _context.Ilceler

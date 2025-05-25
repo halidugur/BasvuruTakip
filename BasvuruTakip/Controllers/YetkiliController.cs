@@ -9,7 +9,6 @@ namespace BasvuruTakip.Controllers
         {
             return View();
         }
-
         [HttpPost]
         public IActionResult Giris(string kullaniciAdi, string sifre)
         {
@@ -18,11 +17,9 @@ namespace BasvuruTakip.Controllers
                 HttpContext.Session.SetString("YetkiliMi", "evet");
                 return RedirectToAction("Listele", "PersonelIsBasvurusu");
             }
-
             ViewBag.Hata = "Kullanıcı adı veya şifre hatalı!";
             return View();
         }
-
         public IActionResult Cikis()
         {
             HttpContext.Session.Clear();
