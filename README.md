@@ -9,3 +9,4 @@ This project is a user-friendly job application tracking system built with ASP.N
 ![Ekran görüntüsü 2025-05-22 093711](https://github.com/user-attachments/assets/c40f1208-d941-4678-86f4-4de068c180fc)
 ![Ekran görüntüsü 2025-05-22 093726](https://github.com/user-attachments/assets/a564784f-4262-4ad2-b93a-d6b458ca3788)
 ![Ekran görüntüsü 2025-05-22 093803](https://github.com/user-attachments/assets/2025f18d-aca3-4670-8b93-f040cae36dc8)
+![Ekran görüntüsü 2025-05-27 183346](https://github.com/user-attachments/assets/db1c732d-8864-4955-b17d-d9e23651c43b)
