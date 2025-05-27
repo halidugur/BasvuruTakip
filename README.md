@@ -1,48 +1,11 @@
-📌 Project Title
-Job Application Tracking System – ASP.NET Core MVC
+🇹🇷
+Bu proje, ASP.NET Core MVC ve PostgreSQL kullanılarak geliştirilen, kullanıcı dostu bir iş başvuru takip sistemidir. Personel kayıtlarını ekleyip yönetmeye, her personel için iş başvurularını listelemeye ve detaylarını (il, ilçe, pozisyon, açıklama) görüntülemeye olanak tanır. Sistem, admin girişiyle (kullanıcı adı: admin, şifre: 0390) erişilen yetkili bir panel içerir. Türkçe arayüzlü, mobil uyumlu ve şehir seçimine göre ilçe bilgisini dinamik olarak yükleyen (AJAX) bir yapıdadır. Uygulama Entity Framework Core ile geliştirilmiş olup jQuery ve Bootstrap ile desteklenmiştir. PostgreSQL bağlantısı appsettings.json üzerinden ayarlanır ve proje Visual Studio ya da dotnet run komutuyla çalıştırılabilir. Proje Render.com üzerinden canlı olarak da yayımlanabilir.
 
-📋 Description
-This is a lightweight and user-friendly web application built with ASP.NET Core MVC and PostgreSQL for tracking job applications and managing applicant records.
-It is ideal for HR teams, recruitment specialists, or small organizations needing a simple internal personnel application system.
+🇬🇧
+This project is a user-friendly job application tracking system built with ASP.NET Core MVC and PostgreSQL. It allows you to add and manage personnel records, list job applications for each person, and view application details like city, district, position, and notes. It includes an admin-only panel (username: admin, password: 0390), has a Turkish interface, is mobile responsive, and dynamically loads districts based on the selected city using AJAX. Developed with Entity Framework Core and supported by jQuery and Bootstrap, the PostgreSQL connection is configured in appsettings.json. The project can be run via Visual Studio or using the dotnet run command and is deployable on platforms like Render.com.!
 
-🧩 Features
-✅ Add and manage personnel records
 
-✅ Track individual job applications
-
-✅ View applicant details (city, district, position, notes, etc.)
-
-✅ Admin-only section for authorized users (username: admin, password: 0390)
-
-✅ Turkish interface with responsive design
-
-✅ Dynamic district loading via AJAX based on selected city
-
-✅ Session-based access control for secure admin views
-
-🚀 Technologies Used
-ASP.NET Core MVC (.NET 7+ or 6+)
-
-PostgreSQL
-
-Entity Framework Core
-
-Bootstrap & Custom CSS
-
-jQuery (for dynamic dropdowns)
-
-📦 How to Run
-Clone the repository
-
-Update your PostgreSQL connection string in appsettings.json
-
-Run migrations (if needed)
-
-Run the app with dotnet run or via Visual Studio
-
-Visit https://localhost:7141 or http://localhost:7141
-
-🌍 Live Preview
-Deployed via Render.com
-
-🔗 https://your-app-name.onrender.com
+[Ekran görüntüsü 2025-05-22 093653](https://github.com/user-attachments/assets/4adc3631-794c-40a1-9f14-7b7721e88013)
+![Ekran görüntüsü 2025-05-22 093711](https://github.com/user-attachments/assets/c40f1208-d941-4678-86f4-4de068c180fc)
+![Ekran görüntüsü 2025-05-22 093726](https://github.com/user-attachments/assets/a564784f-4262-4ad2-b93a-d6b458ca3788)
+![Ekran görüntüsü 2025-05-22 093803](https://github.com/user-attachments/assets/2025f18d-aca3-4670-8b93-f040cae36dc8)
